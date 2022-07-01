@@ -7,18 +7,18 @@ page = get(url)
 bs = BeautifulSoup(page.content, 'html.parser')
 
 for offer in bs.find_all(attrs={"data-cy": "l-card"}):
-    footer = offer.find(attrs={"data-testid": "location-date"}).get_text()
-    location = footer.split(' - ')[0]
-    dateList = (footer.split(' - ')[1]).split()[-3:]
+    footer = offer.find(attrs={"data-testid": "location-date"})
+    footerString = offer.find(attrs={"data-testid": "location-date"}).get_text()
+    location = footerString.split(' - ')[0]
+    dateList = (footerString.split(' - ')[1]).split()[-3:]
     date = ' '.join(dateList)
     title = offer.find('h6').get_text().strip()
     price = offer.find(attrs={"data-testid": "ad-price"}).get_text().strip()
+    size = footer.find_next('p').get_text()
 
-    print(title)
-    print(date)    
+    print(date) 
+    print(title)   
     print(location)
+    print(size)
     print(price)
     print()
-
-
-    
