@@ -4,7 +4,6 @@ import sqlite3
 from sys import argv
 import babel.dates
 import datetime
-from datetime import date
 
 BASE_OLX = "https://www.olx.pl"
 MAIN_OLX = f"{BASE_OLX}/d/nieruchomosci/mieszkania/wynajem/warszawa/?search%5Bprivate_business%5D=private&search%5Bfilter_float_price:from%5D=2300&search%5Bfilter_float_price:to%5D=2700&search%5Bfilter_float_m:from%5D=35&search%5Bfilter_enum_rooms%5D%5B0%5D=two"
