@@ -6,9 +6,9 @@ import babel.dates
 import datetime
 from datetime import date
 
-MAIN_OLX = "https://www.olx.pl/d/nieruchomosci/mieszkania/wynajem/warszawa/?search%5Bfilter_float_price:from%5D=2300&search%5Bfilter_float_price:to%5D=2700&search%5Bfilter_float_m:from%5D=35&search%5Bfilter_enum_rooms%5D%5B0%5D=two"
-PAGES_OLX = "https://www.olx.pl/d/nieruchomosci/mieszkania/wynajem/warszawa/?search%5Bfilter_float_price:from%5D=2300&search%5Bfilter_float_price:to%5D=2700&search%5Bfilter_float_m:from%5D=35&search%5Bfilter_enum_rooms%5D%5B0%5D=two&page="
 BASE_OLX = "https://www.olx.pl"
+MAIN_OLX = f"{BASE_OLX}/d/nieruchomosci/mieszkania/wynajem/warszawa/?search%5Bprivate_business%5D=private&search%5Bfilter_float_price:from%5D=2300&search%5Bfilter_float_price:to%5D=2700&search%5Bfilter_float_m:from%5D=35&search%5Bfilter_enum_rooms%5D%5B0%5D=two"
+PAGES_OLX = f"{MAIN_OLX}&page="
 MONTHS_OLX = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia']
 
 db = sqlite3.connect('data.db')
@@ -28,7 +28,7 @@ pageNum = 0
 for i in range(int(lp)):
     
     pageNum += 1
-    # Fix incrementing count
+
     print(f"Gathering {str(pageNum)}/{str(lp)}")
 
     count+=1
