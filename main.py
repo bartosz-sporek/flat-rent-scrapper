@@ -7,8 +7,6 @@ import datetime
 from datetime import date
 
 
-
-
 db = sqlite3.connect('data.db')
 cursor = db.cursor()
 
@@ -41,23 +39,23 @@ for i in range(int(lp)):
 
         match month:
             case 'stycznia':
-                month = "1"
+                month = "01"
             case 'lutego':
-                month = "2"
+                month = "02"
             case 'marca':
-                month = "3"
+                month = "03"
             case 'kwietnia':
-                month = "4"
+                month = "04"
             case 'maja':
-                month = "5"
+                month = "05"
             case 'czerwca':
-                month = "6"
+                month = "06"
             case 'lipca':
-                month = "7"
+                month = "07"
             case 'sierpnia':
-                month = "8"
+                month = "08"
             case 'września':
-                month = "9"
+                month = "09"
             case 'października':
                 month = "10"
             case 'listopada':
@@ -68,7 +66,7 @@ for i in range(int(lp)):
         if "Dzisiaj" in dateLong:
             dateLong = dateLong.replace(dateLong, babel.dates.format_date(now, 'yyyy/MM/dd', locale='pl_PL'))
         else:
-            dateLong = f'{year}/0{month}/{day}'
+            dateLong = f'{year}/{month}/{day}'
 
         cursor.execute('''SELECT *
         FROM offers
