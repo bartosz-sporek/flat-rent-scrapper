@@ -23,6 +23,7 @@ lastPage = bs.select('ul.pagination-list li:nth-of-type(5) > a:nth-of-type(1)')[
 lp = lastPage.rsplit('=', 1)[-1]
 count = 0
 pageNum = 0
+numOfOffersAdded = 0
 
 for i in range(int(lp)):
     
@@ -86,9 +87,11 @@ for i in range(int(lp)):
 
         try:
             cursor.execute('INSERT INTO offers VALUES (?, ?, ?, ?, ?, ?)', (dateLong, title, location, size, price, link))
+            numOfOffersAdded+=1
         except sqlite3.IntegrityError:
             continue
 
         db.commit()
 
 db.close()
+print(f"{numOfOffersAdded} of the new offers were added.")
