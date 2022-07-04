@@ -82,6 +82,8 @@ for i in range(int(lp)):
         size = footer.find_next('p').get_text()
         linkEnding = offer.find('a')['href']
         link = BASE_OLX + linkEnding
+        if "otodom" in link:
+            link = linkEnding
 
         try:
             cursor.execute('INSERT INTO offers VALUES (?, ?, ?, ?, ?, ?)', (dateLong, title, location, size, price, link))
